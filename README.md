@@ -32,7 +32,7 @@ const uint32_t IRQ_CHAN = 0U; // in this example, we use PIO interrupt channel 0
 
 struct your_handler {
     inline void operator()() {
-        // do stuff
+        // you received an interrupt. do stuff
     }
 };
 
