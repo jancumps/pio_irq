@@ -6,7 +6,7 @@ It's most useful in:
 - object oriented designs, where
 - PIO state machines are managed by objects. 
 - When you have an object that needs to know when a state machine has completed an activity.
-- When you have multiple state machines, all  independently performing their task, and your program need to know what's happening.  
+- When you have multiple state machines, all  independently performing their task, and your program needs to know what's happening.  
 
 A typical design is to have your own little object (a handler) for each state machine + interrupt# combination.
 You register that object in the library. It will get called when that state machine fires that interrupt.
