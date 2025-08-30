@@ -103,8 +103,8 @@ add_compile_definitions(PICO_MAX_SHARED_IRQ_HANDLERS=10)
 
 
 ## demo project that uses this lib: 
-[advanced example with notification](https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pio-stepper-library-documentation---2-advanced-example-with-notification)  
-[usage and example](https://community.element14.com/products/raspberry-pi/b/blog/posts/oo-library-to-handle-pico-pio-relative-interrupts)  
+[PIO managed stepper motor example with notification](https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pio-stepper-library-documentation---2-advanced-example-with-notification)  
+[pio_irq test all available state machines](https://community.element14.com/products/raspberry-pi/b/blog/posts/oo-library-to-handle-pico-pio-relative-interrupts)  
 
 ## toolchain requirements: 
 - CMake 3.28 or higher
