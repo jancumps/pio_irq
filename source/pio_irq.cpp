@@ -116,6 +116,7 @@ private:
         uint sm = sm_from_interrupt(pio->irq, interrupt_number);
         // TODO: do I need to retrieve the ir, or is it this->ir? 
         uint ir = relative_interrupt(interrupt_number, sm);
+        assert(ir == this->ir);
         _pio_interrupt_clear(pio, ir); // TODO: should I clear if there is no handler?
         H *handler =  handlers_[index_for(pio, sm)];
         if (handler != nullptr) {
