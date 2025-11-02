@@ -114,7 +114,8 @@ private:
         }
         assert (pio->irq); // there should always be a sm
         uint sm = sm_from_interrupt(pio->irq, interrupt_number);
-        _pio_interrupt_clear(pio, this->ir); // TODO: should I clear if there is no handler?
+        uint ir = relative_interrupt(interrupt_number, sm);
+        _pio_interrupt_clear(pio, ir); // TODO: should I clear if there is no handler?
         H *handler =  handlers_[index_for(pio, sm)];
         if (handler != nullptr) {
             (*handler)();
