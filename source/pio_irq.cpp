@@ -107,7 +107,7 @@ public:
     }
 
 private:
-    // forwards the interrupt to the surrounding class
+    // forwards the interrupt to the correct handler object
     static void interrupt_handler(PIO pio) {
         if (pio->irq == 0U) {
             return; // we can't handle IRQs that don't have sm info
