@@ -39,7 +39,7 @@ inline pio_interrupt_source interrupt_source(const pio_interrupt_source is, cons
     return static_cast<pio_interrupt_source>(std::to_underlying(is) + ir);
 }
 
-// creating non-inline wrapper for some API calls, because GCC 15.1 for RISKV complains about exposing local TU
+// creating non-inline wrapper for some API calls, because GCC 15.1 for RISCV complains about exposing local TU
 
 void _pio_set_irq0_source_enabled(PIO pio, pio_interrupt_source_t source, bool enabled) {
     pio_set_irq0_source_enabled(pio, source, enabled);
