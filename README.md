@@ -68,6 +68,9 @@ int main() {
     }
 
     // enable the state machines
+    for (auto &h: handlers) {
+        pio_sm_set_enabled(h.pio, h.sm, true);
+    }
 ```
 
 ## Adding the lib to your Raspberry Pico project
