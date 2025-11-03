@@ -35,8 +35,8 @@ inline uint relative_interrupt(const uint32_t ir, const uint sm) {
 size_t index_for(PIO pio, uint sm) { return PIO_NUM(pio) * 4 + sm; }
 
 // utility to do math on pio_interrupt_source enum
-inline pio_interrupt_source interrupt_source(const pio_interrupt_source is, const uint32_t ir){
-    return static_cast<pio_interrupt_source>(std::to_underlying(is) + ir);
+inline pio_interrupt_source interrupt_source(const uint32_t ir){
+    return static_cast<pio_interrupt_source>(std::to_underlying(pis_interrupt0) + ir);
 }
 
 // creating non-inline wrapper for some API calls, because GCC 15.1 for RISCV complains about exposing local TU
@@ -69,11 +69,9 @@ public:
         irq_handler_t handler = nullptr;
 
         if (irq_channel == 0) {
-            _pio_set_irq0_source_enabled(pio, interrupt_source(pis_interrupt0, 
-                relative_interrupt(interrupt_number, sm)), true);
+            _pio_set_irq0_source_enabled(pio, interrupt_source(relative_interrupt(interrupt_number, sm)), true);
         } else {
-            _pio_set_irq1_source_enabled(pio, interrupt_source(pis_interrupt0, 
-                relative_interrupt(interrupt_number, sm)), true);
+            _pio_set_irq1_source_enabled(pio, interrupt_source(relative_interrupt(interrupt_number, sm)), true);
         }
 
         switch (PIO_NUM(pio)) {
