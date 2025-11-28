@@ -128,11 +128,8 @@ private:
 
     // keep pointer of objects that serve the state machines
     // 2-D array with slot for all possible state machines: PIO0[0..3], PIO1[0..3], ...
-    static std::array<H *, NUM_PIOS * 4> handlers_;
+    inline static std::array<H *, NUM_PIOS * 4> handlers_;
 };
-
-// static data member must be initialised outside of the class, or the linker will not capture it
-template <std::invocable H, uint32_t interrupt_number> std::array<H *, NUM_PIOS * 4>  pio_irq<H, interrupt_number>::handlers_;
 
 // lib currently supports 1 (base) class without considerations.
 // Behaviour when more than one handler is registered for the same sm/interrupt number combination is undefined. 
