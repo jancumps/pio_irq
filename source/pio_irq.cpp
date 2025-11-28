@@ -120,10 +120,10 @@ private:
         }
     }
 
-    static inline void interrupt_handler_PIO0() { interrupt_handler(pio0); }
-    static inline void interrupt_handler_PIO1() { interrupt_handler(pio1); }
+    inline static void interrupt_handler_PIO0() { interrupt_handler(pio0); }
+    inline static void interrupt_handler_PIO1() { interrupt_handler(pio1); }
 #if (NUM_PIOS > 2) // pico 2
-    static inline void interrupt_handler_PIO2() { interrupt_handler(pio2); }
+    inline static void interrupt_handler_PIO2() { interrupt_handler(pio2); }
 #endif
 
     // keep pointer of objects that serve the state machines
